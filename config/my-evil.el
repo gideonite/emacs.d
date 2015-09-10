@@ -5,11 +5,12 @@
   :init (global-evil-leader-mode)
   :config (progn
             (evil-leader/set-leader "SPC")
-            (evil-leader/set-key "/" 'evilnc-comment-or-uncomment-lines)
+            (evil-leader/set-key "/" 'comment-or-uncomment-region)
             (evil-leader/set-key "w" 'save-buffer)
             (evil-leader/set-key "q" 'kill-buffer-and-window)
             (evil-leader/set-key "h" 'dired-jump)
             (evil-leader/set-key "v" 'split-window-right)
+            (evil-leader/set-key "c" 'split-window-below)
             (evil-leader/set-key "e" 'pp-eval-last-sexp)
             ;(evil-leader/set-key "," 'other-window)
             (evil-leader/set-key "b" 'ibuffer)

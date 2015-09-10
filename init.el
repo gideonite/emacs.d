@@ -70,6 +70,8 @@
 
 (require 'my-evil)
 
+(require 'my-octave)
+
 (require 'my-ibuffer)
 
 (require 'my-dired)
@@ -88,10 +90,14 @@
 
 (require 'my-python)
 
+(setq exec-path (append exec-path '("/usr/bin/pdflatex")))
+
 (savehist-mode 1)
 
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome-stable")
+
+(setq undo-tree-auto-save-history t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -102,6 +108,7 @@
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(find-file-wildcards t)
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
  '(tool-bar-mode nil))
