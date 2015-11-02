@@ -22,7 +22,7 @@
 
 (setq visible-bell 1)
 
-(visual-line-mode 1)
+(global-visual-line-mode 1)
 
 (setq require-final-newline t)
 
@@ -90,6 +90,11 @@
 
 (require 'my-python)
 
+(progn
+  ;; my ispell
+  (setq ispell-program-name "aspell")
+  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
+
 ;; source: https://www.masteringemacs.org/article/iedit-interactive-multi-occurrence-editing-in-your-buffer
 ;; edit variables by scope, not by string matching
 (defun iedit-dwim (arg)
@@ -116,7 +121,13 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome-stable")
 
+;; undo-tree
 (setq undo-tree-auto-save-history t)
+(setq undo-tree-history-directory-alist `(("." . ,(expand-file-name "~/.emacs-undo/"))))
+;; TODO seems cool but can't figure out how it works.
+;; (defadvice undo-tree-make-history-save-file-name
+;;   (after undo-tree-compressed activate)
+;;   (setq ad-return-value (concat ad-return-value ".gz")))﻿
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
