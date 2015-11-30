@@ -66,6 +66,8 @@
 
 (ido-mode t)
 
+(require 'my-lib)
+
 (require 'my-slime)
 
 (require 'my-evil)
@@ -141,6 +143,9 @@
  '(find-file-wildcards t)
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/cornell-classes-2015/comp-gen/final-project/proposal2.org")))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
