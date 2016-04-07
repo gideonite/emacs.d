@@ -6,7 +6,8 @@
             (abbrev-mode 1)
             (auto-fill-mode 1)
             (if (eq window-system 'x)
-                (font-lock-mode 1))))
+                (font-lock-mode 1))
+            (setq comment-start "%")))
 
 (defun keymap-forall-octave-modes ()
   (progn
@@ -20,7 +21,7 @@
       (kbd "<f2>") 'octave-lookfor)))
 
 (eval-after-load 'octave-mode
-  (keymap-forall-octave-modes))
+    (keymap-forall-octave-modes))
 
 (eval-after-load 'inferior-octave-mode-map
   (keymap-forall-octave-modes))

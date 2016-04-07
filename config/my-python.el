@@ -1,8 +1,3 @@
-
-
-
-
-
 (use-package python-mode
   ; http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
   :init (progn

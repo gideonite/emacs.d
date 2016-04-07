@@ -34,9 +34,14 @@
        (R . t)
        (octave . t)))))
 
-(after 'org-mode
-  (progn
+(defun my-org-mode-hook ()
+   (progn
     (setq org-latex-pdf-process '("texi2dvi -p -b -V %f"))
-    (org-cdlatex-mode)))
+    (interactive)
+    (org-cdlatex-mode)
+    (reftex-mode)))
+
+(add-hook 'org-mode-hook
+          'my-org-mode-hook)
 
 (provide 'my-org)

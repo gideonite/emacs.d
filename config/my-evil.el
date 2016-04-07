@@ -20,7 +20,7 @@
   :ensure evil
   :config (progn
             (evil-mode 1)
-            (setq evil-symbol-word-search t)
+            (setq-default evil-symbol-word-search t)
             (define-key evil-normal-state-map (kbd "C-S-h") 'help)
             (define-key evil-normal-state-map (kbd "S-q") 'evil-fill-and-move) ;; doesn't work =(
             (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
