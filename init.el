@@ -73,9 +73,9 @@
 
 (ido-mode t)
 
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 ;;(setq desktop-files-not-to-save "\\(^/*:\\|(ftp)$\\)") Want to save tramp sessions too.
-(setq desktop-files-not-to-save "^$")
+;; (setq desktop-files-not-to-save "^$")
 
 (setq x-select-enable-clipboard t)
 
