@@ -115,30 +115,31 @@
   (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
 
 (use-package iedit-mode
-  :config
-  (progn
-    ;; source: https://www.masteringemacs.org/article/iedit-interactive-multi-occurrence-editing-in-your-buffer
-    ;; edit variables by scope, not by string matching
-    (defun iedit-dwim (arg)
-      "Starts iedit but uses \\[narrow-to-defun] to limit its scope."
-      (interactive "P")
-      (if arg
-          (iedit-mode)
-        (save-excursion
-          (save-restriction
-            (widen)
-            ;; this function determines the scope of `iedit-start'.
-            (if iedit-mode
-                (iedit-done)
-              ;; `current-word' can of course be replaced by other
-              ;; functions.
-              (narrow-to-defun)
-              (iedit-start (current-word) (point-min) (point-max)))))))
-    (global-set-key (kbd "C-:") 'iedit-dwim)))
+  :config (progn
+            ;; source: https://www.masteringemacs.org/article/iedit-interactive-multi-occurrence-editing-in-your-buffer
+            ;; edit variables by scope, not by string matching
+            (defun iedit-dwim (arg)
+              "Starts iedit but uses \\[narrow-to-defun] to limit its scope."
+              (interactive "P")
+              (if arg
+                  (iedit-mode)
+                (save-excursion
+                  (save-restriction
+                    (widen)
+                    ;; this function determines the scope of `iedit-start'.
+                    (if iedit-mode
+                        (iedit-done)
+                      ;; `current-word' can of course be replaced by other
+                      ;; functions.
+                      (narrow-to-defun)
+                      (iedit-start (current-word) (point-min) (point-max)))))))
+            (global-set-key (kbd "C-:") 'iedit-dwim)))
 
 (setq exec-path (append exec-path '("/usr/bin/pdflatex")))
 
 (savehist-mode 1)
+
+(auto-revert-mode 1)
 
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome-stable")
@@ -165,11 +166,13 @@
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
  '(org-latex-preview-ltxpng-directory "/tmp/emacs-ltxpng/ltxpng/")
+ '(save-place t nil (saveplace))
  '(send-mail-function (quote smtpmail-send-it))
+ '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 78 :width normal)))))
