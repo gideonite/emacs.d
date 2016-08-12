@@ -2,12 +2,24 @@
   ;; load files, require symbols.
 
   (progn
+
+    (setq org-confirm-babel-evaluate nil)
+    (setq org-src-fontify-natively t)
+
+    ;; increase size of the latex preview font.
+    (setq org-format-latex-options
+          (plist-put org-format-latex-options :scale 1.75))
+
+    ;; fix text color
+    (setq org-format-latex-options
+          (plist-put org-format-latex-options :background "White"))
+
+    ; display/update images in the buffer after I evaluate
+    (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+
+    ;; Julia stuff
     ;; (load "/home/gideon/.emacs.d/config/ob-julia.el")
     ;; (setq  inferior-julia-program-name "/usr/bin/julia")
-    ;; (setq org-confirm-babel-evaluate nil)
-    ;; (setq org-src-fontify-natively t)
-    (require 'ob-ipython)
-
     ;; ;; More on
     ;; ;; julia-write-object-command here:
     ;; ;; https://github.com/gjkerns/ob-julia/issues/2.
@@ -20,13 +32,7 @@
     ;;                                     writecsv(fn,o); end;
     ;;                                     wout(\"%s\",%s)")
 
-    ;; increase size of the latex preview font.
-    (setq org-format-latex-options
-          (plist-put org-format-latex-options :scale 1.75))
-
-    ;; fix text color
-    (setq org-format-latex-options
-          (plist-put org-format-latex-options :background "White"))
+    (require 'ob-ipython)
 
     ;; load babel languages
     (org-babel-do-load-languages
