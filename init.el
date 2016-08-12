@@ -109,6 +109,8 @@
 
 (require 'my-python)
 
+(require 'my-iedit)
+
 (progn
   ;; my ispell
   (setq ispell-program-name "aspell")

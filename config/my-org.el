@@ -6,6 +6,7 @@
     ;; (setq  inferior-julia-program-name "/usr/bin/julia")
     ;; (setq org-confirm-babel-evaluate nil)
     ;; (setq org-src-fontify-natively t)
+    (require 'ob-ipython)
 
     ;; ;; More on
     ;; ;; julia-write-object-command here:
