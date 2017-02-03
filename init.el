@@ -111,6 +111,10 @@
 
 (require 'my-iedit)
 
+(require 'my-mu4e)
+
+(require 'daypages)
+
 (progn
   ;; my ispell
   (setq ispell-program-name "aspell")
@@ -134,6 +138,9 @@
 ;;   (after undo-tree-compressed activate)
 ;;   (setq ad-return-value (concat ad-return-value ".gz")))﻿
 
+
+(set-face-attribute 'default nil :family "Anonymous Pro" :height 100) 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -147,6 +154,9 @@
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
  '(org-latex-preview-ltxpng-directory "/tmp/emacs-ltxpng/ltxpng/")
+ '(package-selected-packages
+   (quote
+    (wc-mode zotxt xclip wgrep-ag virtualenvwrapper use-package tramp-term solarized-theme slime-volleyball slime racket-mode quack pylint pretty-lambdada pinyinlib pdf-tools ob-ipython markdown-mode magit js3-mode js2-refactor js2-closure jekyll-modes imenu-anywhere iedit helm geiser folding flycheck expand-region evil-paredit evil-leader ess elisp-slime-nav dumb-jump dockerfile-mode db-pg company clojure-mode-extra-font-locking cdlatex auctex ac-octave ac-math ac-js2 ac-cider)))
  '(save-place t nil (saveplace))
  '(send-mail-function (quote smtpmail-send-it))
  '(show-paren-mode t)
@@ -156,4 +166,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 78 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 90 :width normal)))))
