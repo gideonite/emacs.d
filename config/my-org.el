@@ -32,7 +32,7 @@
     ;;                                     writecsv(fn,o); end;
     ;;                                     wout(\"%s\",%s)")
 
-    (require 'ob-ipython)
+    ;; (require 'ob-ipython)
 
     ;; load babel languages
     (org-babel-do-load-languages
