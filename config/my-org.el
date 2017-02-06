@@ -39,7 +39,7 @@
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((python . t)
-       (ipython . t)
+       ;;(ipython . t)
        (R . t)
        (octave . t)))))
 
