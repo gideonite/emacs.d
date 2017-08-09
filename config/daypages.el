@@ -26,4 +26,12 @@
   (interactive) 
   (find-daypage))
 
+(defun log-daypage ()
+  "The log page is a single page for input that is intended to stick
+   around for a while."
+  (interactive)
+  (find-file
+   (expand-file-name
+    (concat daypage-path "log.org"))))
+
 (provide 'daypages)
