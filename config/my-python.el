@@ -37,7 +37,8 @@
 
 
 (setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "-i --simple-prompt")
+      ;;python-shell-interpreter-args "-i --simple-prompt"
+      )
 
 (setq ansi-color-for-comint-mode t)
 
