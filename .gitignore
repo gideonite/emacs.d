@@ -4,8 +4,8 @@
 # -*- mode: gitignore; -*-
 *~
 \#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
+desktop/emacs.desktop
+desktop/lock
 *.elc
 auto-save-list
 tramp

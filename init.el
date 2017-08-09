@@ -3,8 +3,8 @@
 (setq package-initialize-at-startup nil)
 
 (add-to-list 'load-path (concat user-emacs-directory "config")) (setq package-archives '(("melpa" . "http://melpa.org/packages/")
-                                                                                         ("org" . "http://orgmode.org/elpa/")
-                                                                                         ("gnu" . "http://elpa.gnu.org/packages/")))
+                                                                                         ("org"   . "http://orgmode.org/elpa/")
+                                                                                         ("gnu"   . "http://elpa.gnu.org/packages/")))
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -77,6 +77,18 @@
 ;;(setq desktop-files-not-to-save "\\(^/*:\\|(ftp)$\\)") Want to save tramp sessions too.
 ;; (setq desktop-files-not-to-save "^$")
 
+;; Automatically save and restore sessions
+:; https://stackoverflow.com/questions/4477376/some-emacs-desktop-save-questions-how-to-change-it-to-save-in-emacs-d-emacs
+(setq desktop-dirname             "~/.emacs.d/desktop/"
+      desktop-base-file-name      "emacs.desktop"
+      desktop-base-lock-name      "lock"
+      desktop-path                (list desktop-dirname)
+      desktop-save                t
+      desktop-files-not-to-save   "^$" ;reload tramp paths
+      desktop-load-locked-desktop nil
+      desktop-auto-save-timeout   30)
+(desktop-save-mode 1)
+
 (setq x-select-enable-clipboard t)
 
 (setq tramp-default-method "ssh")
@@ -117,21 +129,29 @@
 
 (progn
   ;; my ispell
-  (setq ispell-program-name "aspell")
+  (setq ispell-program-name "/usr/local/bin/aspell")
   (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
 
-(setq exec-path (append exec-path '("/usr/bin/pdflatex")))
+(setenv "PATH" (concat "/Library/TeX/texbin" (getenv "PATH")))
+(setq exec-path (append '("/Library/TeX/texbin") exec-path))
+
+(setq exec-path (append exec-path '("/Users/gideon/anaconda3/bin/")))
 
 (savehist-mode 1)
 
 (auto-revert-mode 1)
 
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "google-chrome-stable")
+      browse-url-generic-program "open")
 
 ;; undo-tree
 (setq undo-tree-auto-save-history t)
 (setq undo-tree-history-directory-alist `(("." . ,(expand-file-name "~/.emacs-undo/"))))
+
+;; Turn on RefTeX in AUCTeX
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;; Activate nice interface between RefTeX and AUCTeX
+(setq reftex-plug-into-AUCTeX t)
 
 ;; TODO seems cool but can't figure out how it works.
 ;; (defadvice undo-tree-make-history-save-file-name
