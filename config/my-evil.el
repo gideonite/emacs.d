@@ -8,7 +8,7 @@
             (evil-leader/set-key "/" 'comment-or-uncomment-region)
             (evil-leader/set-key "w" 'save-buffer)
             (evil-leader/set-key "q" 'kill-buffer-and-window)
-            (evil-leader/set-key "n" 'new-frame)
+            (evil-leader/set-key "n" 'make-frame)
             (evil-leader/set-key "h" 'dired-jump)
             (evil-leader/set-key "v" 'split-window-right)
             (evil-leader/set-key "c" 'split-window-below)
