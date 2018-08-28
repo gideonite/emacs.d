@@ -13,7 +13,6 @@
     ;; fix text color
      (setq org-format-latex-options
            (plist-put org-format-latex-options :background "#002b36")) ;; this is solarized background black.
-    
 
     ; display/update images in the buffer after I evaluate
     (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
@@ -35,13 +34,19 @@
 
     ;; (require 'ob-ipython)
 
+    ; timestamp when a TODO becomes a DONE.
+    (setq org-log-done 'time)
+
     ;; load babel languages
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((python . t)
        ;;(ipython . t)
        (R . t)
-       (octave . t)))))
+       (octave . t)))
+
+    (setq org-todo-keywords
+          '((sequence "TODO" "|" "DONE" "ABORTED")))))
 
 (defun my-org-mode-hook ()
    (progn
