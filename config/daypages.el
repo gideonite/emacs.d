@@ -1,6 +1,7 @@
 ;; source: http://almostobsolete.net/daypage.html
 
-(setq daypage-path "~/Dropbox/org-mode/daily/")
+(setq org-mode-path "~/Dropbox/org-mode/")
+(setq daypage-path (concat org-mode-path "daily/"))
 
 (defun find-daypage (&optional date)
   "Go to the day page for the specified date, 
@@ -9,7 +10,7 @@
                 (org-read-date "" 'totime nil nil
                                (current-time) "")))
   (setq date (or date (current-time)))
-  (find-file 
+  (find-file-other-frame
        (expand-file-name 
         (concat daypage-path 
         (format-time-string "%Y-%m-%d" date) ".org")))
@@ -21,17 +22,16 @@
         (beginning-of-buffer)
         (next-line 2))))
 
-(defun todays-daypage ()
-  "Go straight to today's day page without prompting for a date."
-  (interactive) 
-  (find-daypage))
+;; (defun todays-daypage ()
+;;   "Go straight to today's day page without prompting for a date."
+;;   (interactive) 
+;;   (find-daypage))
 
-(defun log-daypage ()
-  "The log page is a single page for input that is intended to stick
-   around for a while."
-  (interactive)
-  (find-file
-   (expand-file-name
-    (concat daypage-path "log.org"))))
+;; (defun meetings-daypage ()
+;;   "Go to the page that keeps track of meetings."
+;;   (interactive)
+;;   (find-file
+;;    (expand-file-name
+;;     (concat org-mode-path "meetings.org"))))
 
 (provide 'daypages)
