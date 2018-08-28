@@ -2,7 +2,7 @@
 (package-initialize)
 (setq package-initialize-at-startup nil)
 
-(add-to-list 'load-path (concat user-emacs-directory "config")) (setq package-archives '(("melpa" . "http://melpa.org/packages/")
+(add-to-list 'load-path (concat user-emacs-directory "config")) (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                                                                                          ("org"   . "http://orgmode.org/elpa/")
                                                                                          ("gnu"   . "http://elpa.gnu.org/packages/")))
 
@@ -73,10 +73,6 @@
 
 (ido-mode t)
 
-;; (desktop-save-mode 1)
-;;(setq desktop-files-not-to-save "\\(^/*:\\|(ftp)$\\)") Want to save tramp sessions too.
-;; (setq desktop-files-not-to-save "^$")
-
 ;; Automatically save and restore sessions
 :; https://stackoverflow.com/questions/4477376/some-emacs-desktop-save-questions-how-to-change-it-to-save-in-emacs-d-emacs
 (setq desktop-dirname             "~/.emacs.d/desktop/"
@@ -87,7 +83,15 @@
       desktop-files-not-to-save   "^$" ;reload tramp paths
       desktop-load-locked-desktop nil
       desktop-auto-save-timeout   30)
-(desktop-save-mode 1)
+(desktop-save-mode 0)
+
+(defun my-desktop ()
+  "Load the desktop and enable autosaving.
+   https://stackoverflow.com/questions/4477376/some-emacs-desktop-save-questions-how-to-change-it-to-save-in-emacs-d-emacs/4485083#4485083"
+  (interactive)
+  (let ((desktop-load-locked-desktop "ask"))
+    (desktop-read)
+    (desktop-save-mode 1)))
 
 (setq x-select-enable-clipboard t)
 
@@ -132,7 +136,8 @@
   (setq ispell-program-name "/usr/local/bin/aspell")
   (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
 
-(setenv "PATH" (concat "/Library/TeX/texbin" (getenv "PATH")))
+(setenv "PATH" (concat "/Library/TeX/texbin:" (getenv "PATH")))
+
 (setq exec-path (append '("/Library/TeX/texbin") exec-path))
 
 (setq exec-path (append exec-path '("/Users/gideon/anaconda3/bin/")))
@@ -172,14 +177,16 @@
  '(find-file-wildcards t)
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
+ '(org-agenda-files (quote ("~/Dropbox/org-mode/central-command.org")))
  '(org-latex-preview-ltxpng-directory "/tmp/emacs-ltxpng/ltxpng/")
  '(package-selected-packages
    (quote
-    (auto-complete lua-mode wc-mode zotxt xclip wgrep-ag virtualenvwrapper use-package tramp-term solarized-theme slime-volleyball slime racket-mode quack pylint pretty-lambdada pinyinlib pdf-tools markdown-mode magit js3-mode js2-refactor js2-closure jekyll-modes imenu-anywhere iedit helm geiser folding flycheck expand-region evil-paredit evil-leader ess elisp-slime-nav dumb-jump dockerfile-mode db-pg company clojure-mode-extra-font-locking cdlatex auctex ac-octave ac-math ac-js2 ac-cider)))
+    (sane-term htmlize exec-path-from-shell z3-mode auto-complete lua-mode wc-mode zotxt xclip wgrep-ag virtualenvwrapper use-package tramp-term solarized-theme slime-volleyball slime racket-mode quack pylint pretty-lambdada pinyinlib pdf-tools markdown-mode magit js3-mode js2-refactor js2-closure jekyll-modes imenu-anywhere iedit helm geiser folding flycheck expand-region evil-paredit evil-leader ess elisp-slime-nav dumb-jump dockerfile-mode db-pg company clojure-mode-extra-font-locking cdlatex auctex ac-octave ac-math ac-js2 ac-cider)))
  '(save-place t nil (saveplace))
  '(send-mail-function (quote smtpmail-send-it))
  '(show-paren-mode t)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(z3-solver-cmd "/usr/local/bin/z3"))
 
 ;;(custom-set-faces
 ;; ;; custom-set-faces was added by Custom.
@@ -187,3 +194,9 @@
 ;; ;; Your init file should contain only one such instance.
 ;; ;; If there is more than one, they won't work right.
 ;; '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 90 :width normal)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
