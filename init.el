@@ -131,14 +131,14 @@
 
 (require 'daypages)
 
+(require 'my-auctex)
+
 (progn
   ;; my ispell
   (setq ispell-program-name "/usr/local/bin/aspell")
-  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
-
-(setenv "PATH" (concat "/Library/TeX/texbin:" (getenv "PATH")))
-
-(setq exec-path (append '("/Library/TeX/texbin") exec-path))
+  (setq ispell-extra-args '("--sug-mode=ultra"
+                            "--lang=en_US"
+                            "-t"))) ;; tex mode
 
 (setq exec-path (append exec-path '("/Users/gideon/anaconda3/bin/")))
 
@@ -152,11 +152,6 @@
 ;; undo-tree
 (setq undo-tree-auto-save-history t)
 (setq undo-tree-history-directory-alist `(("." . ,(expand-file-name "~/.emacs-undo/"))))
-
-;; Turn on RefTeX in AUCTeX
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-;; Activate nice interface between RefTeX and AUCTeX
-(setq reftex-plug-into-AUCTeX t)
 
 ;; TODO seems cool but can't figure out how it works.
 ;; (defadvice undo-tree-make-history-save-file-name
@@ -177,7 +172,7 @@
  '(find-file-wildcards t)
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
- '(org-agenda-files (quote ("~/Dropbox/org-mode/central-command.org")))
+ '(org-agenda-files nil)
  '(org-latex-preview-ltxpng-directory "/tmp/emacs-ltxpng/ltxpng/")
  '(package-selected-packages
    (quote
@@ -200,3 +195,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
