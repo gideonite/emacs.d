@@ -71,6 +71,13 @@
     (find-file "~/.emacs.d/init.el")
     (switch-to-buffer "init.el")))
 
+(defun projects ()
+  "Shortcut to open `projects` in a new buffer"
+  (interactive)
+  (progn
+    (find-file "~/Dropbox/org-mode/mobile/projects.org")
+    (switch-to-buffer "projects.org")))
+
 (ido-mode t)
 
 ;; Automatically save and restore sessions
