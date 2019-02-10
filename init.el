@@ -78,7 +78,10 @@
     (find-file "~/Dropbox/org-mode/mobile/projects.org")
     (switch-to-buffer "projects.org")))
 
+;; ido mode stuff
 (ido-mode t)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
 
 ;; Automatically save and restore sessions
 :; https://stackoverflow.com/questions/4477376/some-emacs-desktop-save-questions-how-to-change-it-to-save-in-emacs-d-emacs
@@ -129,8 +132,6 @@
 (require 'my-autocomplete)
 
 (require 'my-ag)
-
-(require 'my-python)
 
 (require 'my-iedit)
 
