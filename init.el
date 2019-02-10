@@ -147,7 +147,8 @@
                             "--lang=en_US"
                             "-t"))) ;; tex mode
 
-(setq exec-path (append exec-path '("/Users/gideon/anaconda3/bin/")))
+(setq exec-path (append exec-path '("/Users/gideon/anaconda3/bin/"
+                                    "/Library/TeX/texbin/")))
 
 (savehist-mode 1)
 
@@ -166,7 +167,7 @@
 ;;   (setq ad-return-value (concat ad-return-value ".gz")))﻿
 
 (set-face-attribute 'default nil :family "Anonymous Pro" :height 140) 
-
+                                   
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
