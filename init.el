@@ -103,7 +103,7 @@
     (desktop-read)
     (desktop-save-mode 1)))
 
-(setq x-select-enable-clipboard t)
+;(setq x-select-enable-clipboard t)
 
 (setq tramp-default-method "ssh")
 
@@ -141,6 +141,13 @@
 
 (require 'my-auctex)
 
+;; my python
+(add-hook 'python-mode-hook 'guess-style-guess-tabs-mode)
+(add-hook 'python-mode-hook (lambda ()
+                              (guess-style-guess-tab-width)))
+
+(add-to-list 'write-file-functions 'delete-trailing-whitespace)
+
 (progn
   ;; my ispell
   (setq ispell-program-name "/usr/local/bin/aspell")
@@ -162,19 +169,20 @@
 (setq undo-tree-auto-save-history t)
 (setq undo-tree-history-directory-alist `(("." . ,(expand-file-name "~/.emacs-undo/"))))
 
-;; TODO seems cool but can't figure out how it works.
-;; (defadvice undo-tree-make-history-save-file-name
-;;   (after undo-tree-compressed activate)
-;;   (setq ad-return-value (concat ad-return-value ".gz")))﻿
+(set-face-attribute 'default nil :family "Anonymous Pro" :height 140)
 
-(set-face-attribute 'default nil :family "Anonymous Pro" :height 140) 
-                                   
+(scroll-bar-mode -1)
+
+(blink-cursor-mode t)
+
+;; WIP ivy set up
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-mode t)
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
@@ -182,10 +190,10 @@
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
  '(org-agenda-files nil)
- '(org-latex-preview-ltxpng-directory "/tmp/emacs-ltxpng/ltxpng/")
+ '(org-preview-latex-image-directory "/tmp/emacs-ltxpng/ltxpng/")
  '(package-selected-packages
    (quote
-    (sane-term htmlize exec-path-from-shell z3-mode auto-complete lua-mode wc-mode zotxt xclip wgrep-ag virtualenvwrapper use-package tramp-term solarized-theme slime-volleyball slime racket-mode quack pylint pretty-lambdada pinyinlib pdf-tools markdown-mode magit js3-mode js2-refactor js2-closure jekyll-modes imenu-anywhere iedit helm geiser folding flycheck expand-region evil-paredit evil-leader ess elisp-slime-nav dumb-jump dockerfile-mode db-pg company clojure-mode-extra-font-locking cdlatex auctex ac-octave ac-math ac-js2 ac-cider)))
+    (multi-term evil-magit counsel ivy sane-term htmlize exec-path-from-shell z3-mode auto-complete lua-mode wc-mode zotxt xclip wgrep-ag virtualenvwrapper use-package tramp-term solarized-theme slime-volleyball slime racket-mode quack pylint pretty-lambdada pinyinlib pdf-tools markdown-mode magit js3-mode js2-refactor js2-closure jekyll-modes imenu-anywhere iedit helm geiser folding flycheck expand-region evil-paredit evil-leader ess elisp-slime-nav dumb-jump dockerfile-mode db-pg company clojure-mode-extra-font-locking cdlatex auctex ac-octave ac-math ac-js2 ac-cider)))
  '(save-place t nil (saveplace))
  '(send-mail-function (quote smtpmail-send-it))
  '(show-paren-mode t)
@@ -204,4 +212,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-

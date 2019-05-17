@@ -13,7 +13,7 @@
        (kbd "l") 'ibuffer-visit-buffer
        (kbd "w") 'evil-forward-word-begin
        (kbd "b") 'evil-backward-word-end
-       
+
        (kbd "M-g") 'ibuffer-jump-to-buffer
        (kbd "M-s a C-s") 'ibuffer-do-isearch
        (kbd "M-s a M-C-s") 'ibuffer-do-isearch-regexp

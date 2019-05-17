@@ -30,6 +30,9 @@
             (define-key evil-normal-state-map (kbd "C-;") 'evil-window-right)
             (define-key evil-normal-state-map (kbd "C-N") 'next-buffer)
             (define-key evil-normal-state-map (kbd "C-P") 'previous-buffer)
+
+            ;; macro to insert ipdb.set_trace()
+            (evil-set-register ?p [?o ?i ?m ?p ?o ?r ?t ?  ?i ?p ?d ?b ?\; ?  ?i ?p ?d ?b ?. ?s ?e ?t ?_ ?t ?r ?a ?c ?e ?\( ?\) escape])
             ))
 
 (provide 'my-evil)
