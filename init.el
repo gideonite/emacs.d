@@ -141,15 +141,28 @@
 
 (require 'my-auctex)
 
-;; my python
-(add-hook 'python-mode-hook 'guess-style-guess-tabs-mode)
-(add-hook 'python-mode-hook (lambda ()
-                              (guess-style-guess-tab-width)))
-
 (add-to-list 'write-file-functions 'delete-trailing-whitespace)
 
+;; my python
+(use-package python
+  :mode ("\\.py\\'" . python-mode)
+  :interpreter ("python" . python-mode)
+  :config
+  (progn
+    (defun add-py-debug ()
+      "add debug code and move line down"
+      (interactive)
+      (move-beginning-of-line 1)
+      (insert "import pdb; pdb.set_trace();\n"))
+
+    (local-set-key (kbd "<f6>") 'add-py-debug)
+
+    (add-hook 'python-mode-hook 'guess-style-guess-tabs-mode)
+    (add-hook 'python-mode-hook (lambda ()
+                                  (guess-style-guess-tab-width)))))
+
+;; my ispell
 (progn
-  ;; my ispell
   (setq ispell-program-name "/usr/local/bin/aspell")
   (setq ispell-extra-args '("--sug-mode=ultra"
                             "--lang=en_US"
