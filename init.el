@@ -189,7 +189,6 @@
  '(find-file-wildcards t)
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
- '(org-agenda-files nil)
  '(org-preview-latex-image-directory "/tmp/emacs-ltxpng/ltxpng/")
  '(package-selected-packages
    (quote

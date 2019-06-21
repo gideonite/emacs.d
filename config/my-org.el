@@ -1,6 +1,9 @@
 (use-package org
   :ensure t
   :config (progn
+            (setq org-agenda-files (mapcar 'file-truename
+                                           '("~/Dropbox/org-mode/mobile/projects.org")))
+
             (setq org-confirm-babel-evaluate nil)
             (setq org-src-fontify-natively t)
 
@@ -22,9 +25,6 @@
                   '((sequence "TODO" "|" "DONE" "ABORTED")))
 
             (setq org-agenda-skip-scheduled-if-done t)
-
-            (setq org-agenda-files (mapcar 'file-truename
-                                           '("~/Dropbox/org-mode/mobile/projects.org")))
 
             (defun my-org-mode-hook ()
               (progn
