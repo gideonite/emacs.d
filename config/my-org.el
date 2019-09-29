@@ -1,6 +1,10 @@
 (use-package org
   :ensure t
   :config (progn
+            ;; (setq org-agenda-files
+            ;;       (cons (file-truename "~/Dropbox/org-mode/mobile/projects.org")
+            ;;             (file-expand-wildcards  "~/Dropbox/org-mode/daily/[0-9]*.org")))
+
             (setq org-agenda-files (mapcar 'file-truename
                                            '("~/Dropbox/org-mode/mobile/projects.org")))
 
@@ -35,5 +39,7 @@
 
             (add-hook 'org-mode-hook
                       'my-org-mode-hook)))
+
+
 
 (provide 'my-org)
