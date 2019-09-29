@@ -19,15 +19,18 @@
                                 TeX-command-list)))
   (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
 
+  (add-hook 'TeX-mode-hook 'turn-on-cdlatex)
+
   ;; use Skim as default pdf viewer
   ;; Skim's displayline is used for forward search (from .tex to .pdf)
-  ;; option -b highlights the current line; option -g opens Skim in the background  
+  ;; option -b highlights the current line; option -g opens Skim in the background
   (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
   (setq TeX-view-program-list
         '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -r -b %n %o %b")))
 
   ;; (setenv "PATH" (concat "/Library/TeX/texbin:" (getenv "PATH")))
   ;; (setq exec-path (append '("/Library/TeX/texbin") exec-path))
+
   )
 
 (provide 'my-auctex)
