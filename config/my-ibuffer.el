@@ -141,7 +141,28 @@
        (kbd "C-c C-a") 'ibuffer-auto-mode
        (kbd "C-x 4 RET") 'ibuffer-visit-buffer-other-window
        (kbd "C-x 5 RET") 'ibuffer-visit-buffer-other-frame)
+
+     (setq ibuffer-saved-filter-groups
+           '(("home"
+              ("TeX" (or (mode . latex-mode)
+                         (mode . tex-mode)))
+              ("Org" (or (mode . org-mode)
+                         (filename . "OrgMode")))
+              ("Python" (mode . python-mode))
+              ("emacs-lisp" (mode . emacs-lisp-mode))
+              ("*Misc*" (name . "\*.*\*")))))
+
+     (setq ibuffer-show-empty-filter-groups nil)
+
+     (setq ibuffer-format-bak ibuffer-formats)
+     ;; (setq ibuffer-formats ibuffer-format-bak)
+     (setq ibuffer-formats (append ibuffer-formats '((mark " " modified " " filename))))
      )
   )
+
+(add-hook 'ibuffer-mode-hook
+	  '(lambda ()
+	     (ibuffer-auto-mode 1)
+	     (ibuffer-switch-to-saved-filter-groups "home")))
 
 (provide 'my-ibuffer)
