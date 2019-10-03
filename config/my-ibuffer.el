@@ -145,7 +145,8 @@
      (setq ibuffer-saved-filter-groups
            '(("home"
               ("TeX" (or (mode . latex-mode)
-                         (mode . tex-mode)))
+                         (mode . tex-mode)
+                         (mode . bibtex-mode)))
               ("Org" (or (mode . org-mode)
                          (filename . "OrgMode")))
               ("Python" (mode . python-mode))
@@ -156,7 +157,7 @@
 
      (setq ibuffer-format-bak ibuffer-formats)
      ;; (setq ibuffer-formats ibuffer-format-bak)
-     (setq ibuffer-formats (append ibuffer-formats '((mark " " modified " " filename))))
+     (setq ibuffer-formats (append ibuffer-formats '((mark " " modified " " name))))
      )
   )
 
