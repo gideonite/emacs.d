@@ -13,7 +13,7 @@
             (evil-leader/set-key "v" 'split-window-right)
             (evil-leader/set-key "c" 'split-window-below)
             (evil-leader/set-key "e" 'pp-eval-last-sexp)
-            ;(evil-leader/set-key "," 'other-window)
+            (evil-leader/set-key "`" 'mode-line-other-buffer)
             (evil-leader/set-key "b" 'ibuffer)
             (evil-leader/set-key "x" 'helm-M-x)))
 
