@@ -189,7 +189,7 @@
 (blink-cursor-mode t)
 
 ;; WIP ivy set up
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+;(global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -205,7 +205,7 @@
  '(org-preview-latex-image-directory "/tmp/emacs-ltxpng/ltxpng/")
  '(package-selected-packages
    (quote
-    (multi-term evil-magit counsel ivy sane-term htmlize exec-path-from-shell z3-mode auto-complete lua-mode wc-mode zotxt xclip wgrep-ag virtualenvwrapper use-package tramp-term solarized-theme slime-volleyball slime racket-mode quack pylint pretty-lambdada pinyinlib pdf-tools markdown-mode magit js3-mode js2-refactor js2-closure jekyll-modes imenu-anywhere iedit helm geiser folding flycheck expand-region evil-paredit evil-leader ess elisp-slime-nav dumb-jump dockerfile-mode db-pg company clojure-mode-extra-font-locking cdlatex auctex ac-octave ac-math ac-js2 ac-cider)))
+    (fzf multi-term evil-magit counsel ivy sane-term htmlize exec-path-from-shell z3-mode auto-complete lua-mode wc-mode zotxt xclip wgrep-ag virtualenvwrapper use-package tramp-term solarized-theme slime-volleyball slime racket-mode quack pylint pretty-lambdada pinyinlib pdf-tools markdown-mode magit js3-mode js2-refactor js2-closure jekyll-modes imenu-anywhere iedit helm geiser folding flycheck expand-region evil-paredit evil-leader ess elisp-slime-nav dumb-jump dockerfile-mode db-pg company clojure-mode-extra-font-locking cdlatex auctex ac-octave ac-math ac-js2 ac-cider)))
  '(save-place t nil (saveplace))
  '(send-mail-function (quote smtpmail-send-it))
  '(show-paren-mode t)
